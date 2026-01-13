@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-nexus
+  labels:
+    app: api-nexus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-nexus
+  template:
+    metadata:
+      labels:
+        app: api-nexus
+    spec:
+      containers:
+      - name: api-nexus
+        image: ankitmishralive/api-nexus:{{.Values.image.tag}}
+        ports:
+        - containerPort: 8000

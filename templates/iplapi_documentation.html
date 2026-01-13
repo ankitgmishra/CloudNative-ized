@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Api Documentation</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="/static/image/icon/favicon.ico" type="image/x-icon">
+  <script src="/static/js/documentationScript.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <style>
+
+    
+ /* Custom styles */
+ .sidebar {
+  width: 20rem;
+  height:100%;
+
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -20rem;
+    z-index: 20;
+    width: 18rem;
+    height: 100%;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+
+  .toggle-button {
+    display: block;
+    z-index: 30;
+    position: sticky;
+    bottom: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 20rem;
+    height: 100vh;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar.open {
+    transform: translateX(-100%);
+  }
+
+  .content {
+    margin-left: 20rem;
+    transition: margin-left 0.3s ease-in-out;
+  }
+
+  .content.shifted {
+    margin-left: 0;
+  }
+
+  .toggle-button {
+    display: none;
+  }
+}
+
+/* Additional responsive styles */
+@media (max-width: 767px) {
+  .content {
+    margin-left: 0;
+    padding: 2rem;
+   
+
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .content main {
+    width: 100%;
+  }
+
+  .content pre {
+    overflow-x: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .sidebar {
+    width: 16rem;
+  }
+}
+
+
+  
+  </style>
+
+</head>
+
+<body class="bg-black text-white">
+
+
+  <div class="flex h-screen">
+
+    <!-- Sidebar -->
+    <aside class="sidebar bg-gray-800 shadow-lg">
+
+            
+
+      <div class="py-4">
+        <div class="px-4 mb-6">
+          <a href="/">    <h2 class="text-lg  font-bold">API Nexus</h2> </a>
+        </div>
+        <ul class="space-y-2">
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="movegettingStarted()" >Getting Started</li>
+          <li class="px-4 py-2 hover:bg-pink-500" href='login' >Login</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveAssets()">Team Record Endpoint</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveNews()" >Season Winners Endpoint</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveRegion()">Venues Endpoint</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveSports()">Team Records Against Endpoint</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveEntertainment()">All Batsman Runs Endpoint</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveWorld()">No. of Sixes Hitted By Batsman Endpoint</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveWorld()">Death Over Power Hitters Endpoint</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveWorld()">Team At Venues Endpoint</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveWorld()">Team Vs Team Endpoint</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveWorld()">Batsman Record Endpoint</li>
+
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveWorld()">Batsman Vs All Endpoint</li>
+
+        </ul>
+      </div>
+
+      
+    </aside>
+
+    
+  
+    <button class="fixed top-4 right-8 bg-pink-500 text-white p-2 rounded-lg" style="z-index: 40;"
+  onclick="toggleSidebar()"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
+    </svg> 
+         
+        </button>
+    <!-- Main Content -->
+    <div id='gettingStarted' class="content w-auto flex-grow p-8">
+<h1 class="text-2xl w-auto font-bold"  >Welcome to the API Nexus, IPL API Documentation</h1> 
+
+  <br>
+      <p class='w-auto'>
+        Welcome to the official documentation for our API service. 
+        This documentation provides detailed information about the available endpoints, 
+        request/response formats, and examples to help you integrate and utilize our API effectively.
+      </p>
+      
+      <p> The Response Format
+The API responses are returned in JSON format. Each response will contain relevant data and, if applicable, error messages or status codes. The structure of the response will vary based on the endpoint and the specific request made.
+
+</p> 
+<br>
+<h2 class="text-2xl w-auto' font-bold">Endpoints </h2> <br>
+ <p> Our API provides several endpoints to access different sets of data. Each endpoint serves a specific purpose and requires certain parameters to be included in the request.
+   Below is a list of available endpoints: <br>
+
+<br>
+
+<section id="section5" class='w-auto' >
+  <h2 class="text-2xl font-bold mb-4">Team Record Endpoint</h2>
+  <p class="mb-2">It will return each team of IPL as a JSON Data..</p>
+  <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+  <code class="bg-gray-800 rounded p-2" id='news5' > https://www.api-nexus.ankitmishra.live/api/teams?api_key=Put your API Key</code>
+ 
+  <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news5')">Copy</button>
+  <br> <br>
+<br> 
+</section>
+
+<section id="section1" class='w-auto' >
+    <h2 class="text-2xl font-bold mb-4"> Season Winners Endpoint</h2>
+    <p class="mb-2">It will return each team of IPL as a JSON Data..</p>
+    <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+    <code class="bg-gray-800 rounded p-2" id='news1'>https://www.api-nexus.ankitmishra.live/api/seasonwinner?api_key=Put your API Key</code>
+   
+    <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news1')">Copy</button>
+    <br> <br>
+  <br> 
+  </section>
+
+
+<br>
+
+
+<section id="section1" class='w-auto' >
+    <h2 class="text-2xl font-bold mb-4"> Team Records Against Endpoint</h2>
+    <p class="mb-2">It will return each team of IPL as a JSON Data..</p>
+    <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+    <code class="bg-gray-800 rounded p-2" id='news2' >  https://www.api-nexus.ankitmishra.live/api/teamrecord?team= type team name here?api_key=Put your API Key </code>
+ 
+    <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news2')">Copy</button>
+    <br> <br>
+  <br> 
+</section>
+
+<section id="section1" class='w-auto' >
+    <h2 class="text-2xl font-bold mb-4"> Venues  Endpoint</h2>
+    <p class="mb-2">It will return each team of IPL as a JSON Data..</p>
+    <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+    <code class="bg-gray-800 rounded p-2" id='news3'>  https://www.api-nexus.ankitmishra.live/api/venues?api_key=Put your API Key</code>
+
+    <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news3')">Copy</button>
+    <br> <br>
+  <br> 
+</section>
+
+
+
+<section id="section1" class='w-auto' >
+    <h2 class="text-2xl font-bold mb-4"> All Batsman Runs Endpoint</h2>
+    <p class="mb-2">It will return each team of IPL as a JSON Data..</p>
+    <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+    <code class="bg-gray-800 rounded p-2" id='news4'>  https://www.api-nexus.ankitmishra.live/api/batsmanruns?api_key=Put your API Key </code>
+
+   
+    <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news4')">Copy</button>
+    <br> <br>
+  <br> 
+</section>
+
+
+<section id="section1" class='w-auto' >
+    <h2 class="text-2xl font-bold mb-4">  No. of Sixes Hitted By Batsman Endpoint</h2>
+    <p class="mb-2">It will return each team of IPL as a JSON Data..</p>
+    <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+    <code class="bg-gray-800 rounded p-2" id='news6'> https://www.api-nexus.ankitmishra.live/api/noofsix?api_key=Put your API Key </code>
+    
+    <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news6')">Copy</button>
+    <br> <br>
+  <br> 
+</section>
+
+
+
+<section id="section1" class='w-auto' >
+    <h2 class="text-2xl font-bold mb-4">   Death Over Power Hitters Endpoint</h2>
+    <p class="mb-2">It will return each team of IPL as a JSON Data..</p>
+    <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+    <code class="bg-gray-800 rounded p-2" id='news7'>  https://www.api-nexus.ankitmishra.live/api/powerhitters?api_key=Put your API Key </code>
+
+    <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news7')">Copy</button>
+    <br> <br>
+  <br> 
+</section>
+
+
+
+<section id="section1" class='w-auto' >
+    <h2 class="text-2xl font-bold mb-4">  Team At Venues Endpoint</h2>
+    <p class="mb-2">It will return each team of IPL as a JSON Data..</p>
+    <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+    <code class="bg-gray-800 rounded p-2" id='news8'>  https://www.api-nexus.ankitmishra.live/api/teamatvenue?team=type your team name here&venue= type your venue here?api_key=Put your API Key</code>
+  
+    <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news8')">Copy</button>
+    <br> <br>
+  <br> 
+</section>
+
+
+<section id="section1" class='w-auto' >
+    <h2 class="text-2xl font-bold mb-4">  Team Vs Team  Endpoint</h2>
+    <p class="mb-2">It will return each team of IPL as a JSON Data..</p>
+    <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+    <code class="bg-gray-800 rounded p-2" id='news9'>     https://www.api-nexus.ankitmishra.live/api/teamvteam?team1=type team1 name here  &team2=type team2 name here?api_key=Put your API Key  </code>
+  
+    <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news9')">Copy</button>
+    <br> <br>
+  <br> 
+</section>
+
+
+
+
+<section id="section1" class='w-auto' >
+    <h2 class="text-2xl font-bold mb-4"> Batsman Record Endpoint</h2>
+    <p class="mb-2">It will return each team of IPL as a JSON Data..</p>
+    <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+    <code class="bg-gray-800 rounded p-2" id='news10'>      https://www.api-nexus.ankitmishra.live/api/batsmanrecord?batter=type batsman name here?api_key=Put your API Key   </code>
+     
+    <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news10')">Copy</button>
+    <br> <br>
+  <br> 
+</section>
+
+
+<section id="section1" class='w-auto' >
+    <h2 class="text-2xl font-bold mb-4"> Batsman Vs All Endpoint</h2>
+    <p class="mb-2">It will return each team of IPL as a JSON Data..</p>
+    <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+    <code class="bg-gray-800 rounded p-2" id='news11'>        https://www.api-nexus.ankitmishra.live/api/batsman-runs-against-all-teams?batsman=type batsman name here?api_key=Put your API Key   </code>  
+   
+    <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news11')">Copy</button>
+    <br> <br>
+  <br> 
+</section>
+
+
+
+
+ 
+    </div>
+
+
+  </div>
+
+
+
+</html>

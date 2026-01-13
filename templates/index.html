@@ -1,0 +1,181 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API-Nexus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <meta property="og:title" content="API-Nexus">
+
+    <meta property="og:description" content="Get Data Related to Real Time News & Indian Premier League, Get Access to All data">
+   
+    <meta property="og:image" content="https://www.api-nexus.ankitmishra.live/static/api-nexus.jpeg">
+   
+    <meta property="og:url" content="https://www.api-nexus.ankitmishra.live/">
+    <meta property="description" content="Get Data Related to Real Time News & Indian Premier League, Get Access to All data">
+
+    
+</head>
+<body>
+<div class="bg-white">
+
+{% include "header.html" %}
+
+        <!-- ====== About Section Start -->
+<section class="overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+    <div class="container mx-auto">
+      <div class="-mx-4 flex flex-wrap items-center justify-between">
+        <div class="w-full px-4 lg:w-6/12">
+          <div class="-mx-3 flex items-center sm:-mx-4">
+            <div class="w-full px-3 sm:px-4 xl:w-1/2">
+              <div class="py-3 sm:py-4">
+                <img
+                  src="{{url_for('static', filename='img1.png')}}"
+                  alt=""
+                  class="w-full rounded-2xl"
+                />
+              </div>
+              <div class="py-3 sm:py-4">
+                <img
+                  src="{{url_for('static', filename='img9.png')}}"
+                  alt=""
+                  class="w-full rounded-2xl"
+                />
+              </div>
+            </div>
+            <div class="w-full px-3 sm:px-4 xl:w-1/2">
+              <div class="relative z-10 my-4">
+                <img
+                  src="{{url_for('static', filename='img2.png')}}"
+                  alt=""
+                  class="w-full rounded-2xl"
+                />
+                <span class="absolute -right-7 -bottom-7 z-[-1]">
+    
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
+          <div class="mt-10 lg:mt-0">
+            <span class="text-primary mb-2 block text-lg font-semibold">
+              Why Choose Us
+            </span>
+            <h2 class="text-dark mb-8 text-3xl font-bold sm:text-4xl">
+           
+              Generate Better Insights by using our services.
+            </h2>
+            <p class="text-body-color mb-8 text-base">
+                The response of the all IPL API contains data such as the number of matches played, number of matches won/lost/tied,highest scorer etc. As currently we only provide API's for IPL Data, Will be adding more API's Services comming soon.
+            </p>
+
+            <div class="mt-1 flex items-center justify-center gap-x-6">
+                <a href="/documentation" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started </a>
+                <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Login <span aria-hidden="true">→</span></a>
+              </div>
+
+
+
+ 
+            
+          <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+            <div class="relative pl-9">
+              <dt class="inline font-semibold text-gray-900">
+                <svg class="absolute top-1 left-1 h-5 w-5 text-brown-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z" clip-rule="evenodd" />
+                </svg>
+                What can I build with it?
+              </dt>
+              <dd class="inline">You can build your own points table for a tournament using the data from the Tournament Points API & You can build a standalone statistical dashboard. As a college student you can practice & make projects</dd>
+            </div>
+
+            <div class="relative pl-9">
+              <dt class="inline font-semibold text-gray-900">
+                <svg class="absolute top-1 left-1 h-5 w-5 text-brown-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" />
+                </svg>
+              No Charge
+              </dt>
+              <dd class="inline">Currently its Free for Everyone</dd>
+            </div>
+
+            <div class="relative pl-9">
+              <dt class="inline font-semibold text-gray-900">
+                <svg class="absolute top-1 left-1 h-5 w-5 text-brown-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path d="M4.632 3.533A2 2 0 016.577 2h6.846a2 2 0 011.945 1.533l1.976 8.234A3.489 3.489 0 0016 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234z" />
+                  <path fill-rule="evenodd" d="M4 13a2 2 0 100 4h12a2 2 0 100-4H4zm11.24 2a.75.75 0 01.75-.75H16a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75h-.01a.75.75 0 01-.75-.75V15zm-2.25-.75a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75H13a.75.75 0 00.75-.75V15a.75.75 0 00-.75-.75h-.01z" clip-rule="evenodd" />
+                </svg>
+                Simple to use.
+              </dt>
+              <dd class="inline">Extremely Simple to use. Just Read the Document</dd>
+            </div>
+          </dl>
+
+
+
+            <a
+              href="javascript:void(0)"
+              class="bg-primary inline-flex items-center justify-center rounded-lg py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+            >
+              Get Started
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ====== About Section End -->
+
+
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <h2 class="text-base font-semibold leading-7 text-indigo-600">Simplicity & Efficient</h2>
+      <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Utilize our API service for seamless and efficient data integration.</p>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        Complete access to all data points of the Indian Premier League (IPL) can offer an 
+        unprecedented level of insights and opportunities for data-driven decision making. However, it is crucial to emphasize the importance of ethical and legal considerations,
+         including data privacy and security, and responsible data usage.  </p> 
+    </div>
+<br> <br>
+
+
+
+
+      <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+        <div class="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
+          <img src="{{url_for('static', filename='img6.png')}}" alt="Two each of gray, white, and black shirts laying flat." class="h-full w-full object-cover object-center">
+        </div>
+
+        <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+          <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
+            <img src="{{url_for('static', filename='img3.png')}}" alt="Model wearing plain black basic tee." class="h-full w-full object-cover object-center">
+          </div>
+
+          <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
+            <img src="{{url_for('static', filename='img4.png')}}" alt="Model wearing plain gray basic tee." class="h-full w-full object-cover object-center">
+          </div>
+       
+        </div>
+        
+        <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+
+        <div class="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
+            <img src="{{url_for('static', filename='img9.png')}}" alt="Model wearing plain white basic tee." class="h-full w-full object-cover object-center">
+          </div> 
+
+        </div>
+      
+      </div>
+
+
+      <br> <br> <br> <br>
+
+{% include "footer.html" %}
+

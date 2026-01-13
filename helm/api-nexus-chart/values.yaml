@@ -1,0 +1,10 @@
+
+replicaCount: 1
+
+image: 
+   repository: ankitmishralive/api-nexus
+   pullPolicy: IfNotPresent
+   tag: "v1"
+
+
+

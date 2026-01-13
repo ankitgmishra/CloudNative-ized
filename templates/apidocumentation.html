@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Api Documentation</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="/static/image/icon/favicon.ico" type="image/x-icon">
+  <script src="/static/js/documentationScript.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <style>
+
+    
+ /* Custom styles */
+ .sidebar {
+  width: 20rem;
+  height:100%;
+
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -20rem;
+    z-index: 20;
+    width: 18rem;
+    height: 100%;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+
+  .toggle-button {
+    display: block;
+    z-index: 30;
+    position: sticky;
+    bottom: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 20rem;
+    height: 100vh;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar.open {
+    transform: translateX(-100%);
+  }
+
+  .content {
+    margin-left: 20rem;
+    transition: margin-left 0.3s ease-in-out;
+  }
+
+  .content.shifted {
+    margin-left: 0;
+  }
+
+  .toggle-button {
+    display: none;
+  }
+}
+
+/* Additional responsive styles */
+@media (max-width: 767px) {
+  .content {
+    margin-left: 0;
+    padding: 2rem;
+   
+
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .content main {
+    width: 100%;
+  }
+
+  .content pre {
+    overflow-x: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .sidebar {
+    width: 16rem;
+  }
+}
+
+
+  
+  </style>
+
+</head>
+
+<body class="bg-black text-white">
+
+
+  <div class="flex h-screen">
+
+    <!-- Sidebar -->
+    <aside class="sidebar bg-gray-800 shadow-lg">
+
+            
+
+      <div class="py-4">
+        <div class="px-4 mb-6">
+          <a href="/">    <h2 class="text-lg  font-bold">API Nexus</h2> </a>
+        </div>
+        <ul class="space-y-2">
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="movegettingStarted()" >Getting Started</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveAssets()">Financial Assets Endpoints</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveNews()" >News Endpoints</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveRegion()">Region Endpoints</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveSports()">Sports Endpoints</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveEntertainment()">Entertainment Endpoints</li>
+          <li class="px-4 py-2 hover:bg-pink-500" onclick="moveWorld()">World Endpoints</li>
+  
+       
+        </ul>
+      </div>
+
+      
+    </aside>
+
+    
+  
+    <button class="fixed top-4 right-8 bg-pink-500 text-white p-2 rounded-lg" style="z-index: 40;"
+  onclick="toggleSidebar()"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
+    </svg> 
+         
+        </button>
+    <!-- Main Content -->
+    <div id='gettingStarted' class="content w-auto flex-grow p-8">
+<h1 class="text-2xl w-auto font-bold"  >Welcome to the PREPOST API Documentation</h1> 
+
+  <br>
+      <p class='w-auto'>
+        Welcome to the official documentation for our API service. 
+        This documentation provides detailed information about the available endpoints, 
+        request/response formats, and examples to help you integrate and utilize our API effectively.
+      </p>
+      
+      <p> The Response Format
+The API responses are returned in JSON format. Each response will contain relevant data and, if applicable, error messages or status codes. The structure of the response will vary based on the endpoint and the specific request made.
+
+</p> 
+<br>
+<h2 class="text-2xl w-auto' font-bold">Endpoints </h2> <br>
+ <p> Our API provides several endpoints to access different sets of data. Each endpoint serves a specific purpose and requires certain parameters to be included in the request.
+   Below is a list of available endpoints: <br>
+
+<br>
+
+<section id="section5" class='w-auto' >
+  <h2 class="text-2xl font-bold mb-4">Financial Assets Endpoint</h2>
+  <p class="mb-2">It provides latest News Update related to  Financial Asset.</p>
+  <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+  <code class="bg-gray-800 rounded p-2">https://www.prepost.neuralberg.com/api/news/financial-assets/</code>
+  <br> <br>
+  <h3 class="text-lg font-bold mb-2">Example:</h3>
+  <code class="bg-gray-800 rounded p-2" id='news5' >https://www.prepost.neuralberg.com/api/news/financial-assets/?asset=currency</code>
+  <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news5')">Copy</button>
+  <br> <br>
+  <table class="w-auto mb-4 border border-gray-200">
+    <thead>
+      <tr>
+        <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Key</th>
+        <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Value</th>
+        <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="border-b border-gray-200 px-4 py-2">asset</td>
+        <td class="border-b border-gray-200 px-4 py-2">stock</td>
+        <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding Stocks & stock market</td>
+      </tr>
+      <tr>
+        <td class="border-b border-gray-200 px-4 py-2">asset</td>
+        <td class="border-b border-gray-200 px-4 py-2">currency</td>
+        <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding currency ups & downs,
+           The Currency war of the Globe.</td>
+      </tr>
+      <tr>
+        <td class="border-b border-gray-200 px-4 py-2">asset</td>
+        <td class="border-b border-gray-200 px-4 py-2">cryptocurrency</td>
+        <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding crypto market.</td>
+      </tr>
+      <tr>
+        <td class="border-b border-gray-200 px-4 py-2">asset</td>
+        <td class="border-b border-gray-200 px-4 py-2">personal-finance</td>
+        <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding personal finances.</td>
+      </tr>
+      <tr>
+        <td class="border-b border-gray-200 px-4 py-2">asset</td>
+        <td class="border-b border-gray-200 px-4 py-2">ipo</td>
+        <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding ipo.</td>
+      </tr>
+      <tr>
+        <td class="border-b border-gray-200 px-4 py-2">asset</td>
+        <td class="border-b border-gray-200 px-4 py-2">commodities</td>
+        <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding commodities.</td>
+      </tr>
+    </tbody>
+  </table>
+<br> 
+</section>
+
+<br>
+        <section id="section1">
+          <h2 class="text-2xl font-bold mb-4">News Endpoint</h2>
+          <p class="mb-2">It provides latest News Update from different category & sections in the world, like technology 
+            , health, geopolitics,india,currency,usa,etc
+          </p>
+          <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+          <code class="bg-gray-800 rounded p-2">https://www.prepost.neuralberg.com/api</code>  <br> <br>
+
+          <h3 class="text-lg font-bold mb-2">Example:</h3>
+          <code class="bg-gray-800 rounded p-2" id='news' >https://www.prepost.neuralberg.com/api?news=technology</code>
+          <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news')">Copy</button>
+
+
+          <h3 class="text-lg font-bold mt-4 mb-2">Parameters</h3>
+          <table class="w-auto mb-4 border border-gray-200">
+            <thead>
+              <tr>
+                <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Key</th>
+                <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Value</th>
+                <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">news</td>
+                <td class="border-b border-gray-200 px-4 py-2">crime</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding crime news </td>
+              </tr>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">news</td>
+                <td class="border-b border-gray-200 px-4 py-2">usa</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding the USA</td>
+              </tr>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">news</td>
+                <td class="border-b border-gray-200 px-4 py-2">india</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding India</td>
+              </tr>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">news</td>
+                <td class="border-b border-gray-200 px-4 py-2">health</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding health</td>
+              </tr>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">news</td>
+                <td class="border-b border-gray-200 px-4 py-2">currency</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding currency</td>
+              </tr>
+              
+              <!-- Add more parameters if needed -->
+            </tbody>
+          </table>
+          
+       
+
+        </section>
+
+
+        <br> 
+
+        <section id="section2">
+          <h2 class="text-2xl font-bold mb-4">Region Endpoint</h2>
+          <p class="mb-2">It provides latest News Update from different regions of the world, like asia,europe,middle-east,africa , asia pacific.</p>
+          <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+          <code class="bg-gray-800 rounded p-2">https://www.prepost.neuralberg.com/api/news/</code>  <br> <br>
+          <h3 class="text-lg font-bold mb-2">Example:</h3>
+          <code class="bg-gray-800 rounded p-2" id='news2' >https://www.prepost.neuralberg.com/api/news/?region=europe</code>
+          <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news2')">Copy</button>
+          <br> <br>
+          <table class="w-auto mb-4 border border-gray-200">
+            <thead>
+              <tr>
+                <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Key</th>
+                <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Value</th>
+                <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">region</td>
+                <td class="border-b border-gray-200 px-4 py-2">asia</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates from asia</td>
+              </tr>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">region</td>
+                <td class="border-b border-gray-200 px-4 py-2">europe</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates from europe</td>
+              </tr>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">region</td>
+                <td class="border-b border-gray-200 px-4 py-2">middle-east</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates from middle-east</td>
+              </tr>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">region</td>
+                <td class="border-b border-gray-200 px-4 py-2">africa</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates from africa </td>
+              </tr>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">region</td>
+                <td class="border-b border-gray-200 px-4 py-2">asia-pacific</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates from asia-pacific</td>
+              </tr>
+              
+              <!-- Add more parameters if needed -->
+            </tbody>
+          </table>
+          
+          <br> 
+        </section>
+
+
+
+        <section id="section3">
+          <h2 class="text-2xl font-bold mb-4">Sports Endpoint</h2>
+          <p class="mb-2">It provides latest News Update from different categories of Sports.</p>
+          <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+          <code class="bg-gray-800 rounded p-2">https://www.prepost.neuralberg.com/api/news/sports/</code>
+          <br> <br>
+          <h3 class="text-lg font-bold mb-2">Example:</h3>
+          <code class="bg-gray-800 rounded p-2" id='news3' >https://www.prepost.neuralberg.com/api/news/sports/?sport=all</code>
+          <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news3')">Copy</button>
+          <br> <br>
+          <table class="w-auto mb-4 border border-gray-200">
+            <thead>
+              <tr>
+                <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Key</th>
+                <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Value</th>
+                <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">sport</td>
+                <td class="border-b border-gray-200 px-4 py-2">all</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates from all types of sports</td>
+              </tr>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">sport</td>
+                <td class="border-b border-gray-200 px-4 py-2">cricket</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates from world cricket</td>
+              </tr>
+              <tr>
+                <td class="border-b border-gray-200 px-4 py-2">sport</td>
+                <td class="border-b border-gray-200 px-4 py-2">football</td>
+                <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates from world football</td>
+              </tr>
+              
+
+            </tbody>
+          </table>
+
+  <br> 
+          <section id="section4">
+            <h2 class="text-2xl font-bold mb-4">Entertainment Endpoint</h2>
+            <p class="mb-2">It provides latest News Update from Entertainment Industry.</p>
+            <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+            <code class="bg-gray-800 rounded p-2">https://www.prepost.neuralberg.com/api/news/entertainment/</code>
+            <br> <br>
+            <h3 class="text-lg font-bold mb-2">Example:</h3>
+            <code class="bg-gray-800 rounded p-2" id='news4' >https://www.prepost.neuralberg.com/api/news/entertainment/?entertainment=bollywood</code>
+            <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news4')">Copy</button>
+            <br> <br>
+            <table class="w-auto mb-4 border border-gray-200">
+              <thead>
+                <tr>
+                  <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Key</th>
+                  <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Value</th>
+                  <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border-b border-gray-200 px-4 py-2">entertainment</td>
+                  <td class="border-b border-gray-200 px-4 py-2">bollywood</td>
+                  <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates from bollywood </td>
+                </tr>
+                <tr>
+                  <td class="border-b border-gray-200 px-4 py-2">entertainment</td>
+                  <td class="border-b border-gray-200 px-4 py-2">hollywood</td>
+                  <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates from hollywood</td>
+                </tr>
+                <tr>
+                  <td class="border-b border-gray-200 px-4 py-2">entertainment</td>
+                  <td class="border-b border-gray-200 px-4 py-2">anime</td>
+                  <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates from anime world</td>
+                </tr>
+
+              </tbody>
+            </table>
+          <br> 
+        </section>
+
+
+        
+  <br> 
+
+
+
+
+<section id="section6">
+  <h2 class="text-2xl font-bold mb-4">World Endpoint</h2>
+  <p class="mb-2">It provides latest News Update related to  Financial Asset.</p>
+  <h3 class="text-lg font-bold mb-2">Endpoint</h3>
+  <code class="bg-gray-800 rounded p-2">https://www.prepost.neuralberg.com/api/news/world/</code>
+  <br> <br>
+  <h3 class="text-lg font-bold mb-2">Example:</h3>
+  <code class="bg-gray-800 rounded p-2" id='news6' >https://www.prepost.neuralberg.com/api/news/world/?world=world-economy</code>
+  <button class="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="copyText('news6')">Copy</button>
+  <br> <br>
+  <table class="w-auto mb-4 border border-gray-200">
+    <thead>
+      <tr>
+        <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Key</th>
+        <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Value</th>
+        <th class="text-left bg-gray-800 border-b-2 border-gray-200 px-4 py-2">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="border-b border-gray-200 px-4 py-2">world</td>
+        <td class="border-b border-gray-200 px-4 py-2">world-economy</td>
+        <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding world economy</td>
+      </tr>
+      <tr>
+        <td class="border-b border-gray-200 px-4 py-2">world</td>
+        <td class="border-b border-gray-200 px-4 py-2">global-market</td>
+        <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding global market, its ups & downs </td>
+      </tr>
+      <tr>
+        <td class="border-b border-gray-200 px-4 py-2">world</td>
+        <td class="border-b border-gray-200 px-4 py-2">geopolitics</td>
+        <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding geopolitics.</td>
+      </tr>
+      <tr>
+        <td class="border-b border-gray-200 px-4 py-2">world</td>
+        <td class="border-b border-gray-200 px-4 py-2">terrorism</td>
+        <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding terrorism.</td>
+      </tr>
+      <tr>
+        <td class="border-b border-gray-200 px-4 py-2">world</td>
+        <td class="border-b border-gray-200 px-4 py-2">weird</td>
+        <td class="border-b border-gray-200 px-4 py-2">It will provide the top latest updates regarding weird things goind around in the world.</td>
+      </tr>
+     
+    </tbody>
+  </table>
+<br> 
+</section>
+
+ 
+    </div>
+
+
+  </div>
+
+
+
+</html>
