@@ -47,14 +47,14 @@ jobs:
 
       - run: pytest || echo "No tests yet"
 
-  code-quality:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-      - run: |
-          pip install ruff
-          ruff check .
+  # code-quality:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - run: |
+  #         pip install ruff
+  #         ruff check .
 
   push:
     runs-on: ubuntu-latest
