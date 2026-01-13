@@ -94,7 +94,7 @@ jobs:
         run: |
           sed -i 's/tag: .*/tag: "${{ github.run_id }}"/' helm/api-nexus-chart/values.yaml
 
-      - name: Commit and push
+      - name: Commit and push changes
         run: |
           git config user.email "ankitmishra.letter@gmail.com"
           git config user.name "Ankit Mishra"
