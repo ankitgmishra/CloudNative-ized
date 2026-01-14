@@ -1,6 +1,10 @@
 # CloudNative-ized – API-Nexus 
 
-A **cloud-native, GitOps-driven re-architecture** of my 3 year older Flask project **API-Nexus**, modernized with Docker, Kubernetes, CI/CD, and AWS EKS.
+A **cloud-native, GitOps-driven re-architecture** of my 3 year older Flask project **API-Nexus**, modernized with Docker, Kubernetes, CI/CD, and AWS EKS. 
+
+I just did this to establish my **"Devopsify Any Project"**  Framework.
+
+
 
 This repository demonstrates **end-to-end DevOps + Cloud-Native practices**:
 
